@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.SpaServices.Webpack;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using AutoMapper;
 using vega.Persistence;
 
 namespace vega
@@ -24,6 +25,7 @@ namespace vega
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddAutoMapper();
            // services.AddDbContext<VegaDBContext>(options => options.UseSqlServer(Configuration["ConnectionStrings:Default"]));
         services.AddDbContext<VegaDBContext>(options => options.UseSqlServer(Configuration.GetConnectionString("Default")));
         
